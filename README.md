@@ -56,6 +56,9 @@ module "neo4j-environment" {
 
   //Default is "None"
   bloom_key = "None"
+
+  //Default is false
+  cdc_enable = false
 }
 
 output "ssh_commands" {
