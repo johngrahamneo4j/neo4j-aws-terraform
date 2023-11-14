@@ -19,6 +19,7 @@ TARGET_REGION=${target_region}
 LB_ARN=${lb_arn}
 THIS_INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 ENV_PREFIX=${env_prefix}
+CDC_MODE=${cdc_mode}
 
 function aws_get_private_ips {
   aws ec2 describe-instances\
@@ -109,6 +110,7 @@ echo "server.metrics.prefix=neo4j" >> /etc/neo4j/neo4j.conf
 echo "server.metrics.filter=*" >> /etc/neo4j/neo4j.conf
 echo "server.metrics.csv.interval=5s" >> /etc/neo4j/neo4j.conf
 echo "dbms.routing.default_router=SERVER" >> /etc/neo4j/neo4j.conf
+echo "internal.dbms.change_data_capture="$CDC_MODE >> /etc/neo4j/neo4j.conf
 if [[ $NODE_COUNT == 1 ]]; then
   echo "- [ Running on a single node ] -"
 else
