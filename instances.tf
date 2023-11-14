@@ -25,6 +25,7 @@ resource "aws_instance" "neo4j_instance" {
       neo4j_version  = var.neo4j_version
       target_region  = var.target_region
       env_prefix     = var.env_prefix
+      cdc_mode       = var.cdc_mode
     }
   )
 
