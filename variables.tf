@@ -138,10 +138,10 @@ variable "bloom_key" {
   default     = "None"
 }
 
-variable "cdc_mode" {
-  description = "Log enrichment mode for desired Change Data Capture function. Options are FULL or DIFF"
-  type        = string
-  default     = "OFF" 
+variable "cdc_enable" {
+  description = "Set DBMS to allow CDC to be enabled on databases"
+  type        = bool
+  default     = "FALSE" 
 }
 
 variable "neo4j_password" {
