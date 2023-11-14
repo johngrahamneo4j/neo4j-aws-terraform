@@ -141,7 +141,7 @@ variable "bloom_key" {
 variable "cdc_enable" {
   description = "Set DBMS to allow CDC to be enabled on databases"
   type        = bool
-  default     = "FALSE" 
+  default     = false 
 }
 
 variable "neo4j_password" {
